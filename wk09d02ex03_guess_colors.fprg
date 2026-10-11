@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="wk09d02ex03_guess_colors"/>
+        <attribute name="authors" value="riri"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2026-10-11 10:48:45 AM"/>
+        <attribute name="created" value="cmlyaTtMQVBUT1AtQlJSOEhPRTM7MjAyNi0xMC0xMTsxMDo0NjowMSBBTTsyNzU4"/>
+        <attribute name="edited" value="cmlyaTtMQVBUT1AtQlJSOEhPRTM7MjAyNi0xMC0xMTsxMDo0NzowMiBBTTsxO1VTRVI7REVTS1RPUC1DRVVSUDkzOzIwMjYtMDktMTE7MTA6MzA6MjggUE07d2swOWQwMmV4MDNfZ3Vlc3NfY29sb3JzICgxKS5mcHJnOzg1NDU="/>
+        <attribute name="edited" value="cmlyaTtMQVBUT1AtQlJSOEhPRTM7MjAyNi0xMC0xMTsxMDo0ODo0NSBBTTsxOzI4NzY="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="rainbowColor" type="String" array="True" size="7"/>
+            <declare name="userGuesses" type="String" array="True" size="7"/>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <declare name="correctCount" type="Integer" array="False" size=""/>
+            <assign variable="rainbowColor[0]" expression="&quot;red&quot;"/>
+            <assign variable="rainbowColor[1]" expression="&quot;orange&quot;"/>
+            <assign variable="rainbowColor[2]" expression="&quot;yellow&quot;"/>
+            <assign variable="rainbowColor[3]" expression="&quot;green&quot;"/>
+            <assign variable="rainbowColor[4]" expression="&quot;blue&quot;"/>
+            <assign variable="rainbowColor[5]" expression="&quot;indigo&quot;"/>
+            <assign variable="rainbowColor[6]" expression="&quot;violet&quot;"/>
+            <for variable="i" start="0" end="6" direction="inc" step="1">
+                <output expression="&quot;Enter the colors of the rainbow &quot; &amp; (i + 1) &amp; &quot;:&quot;" newline="True"/>
+                <input variable="userGuesses[i]"/>
+                <assign variable="correctCount" expression="0"/>
+            </for>
+            <for variable="i" start="0" end="6" direction="inc" step="1">
+                <if expression="userGuesses[i] == rainbowColor[i]">
+                    <then>
+                        <assign variable="correctCount" expression="correctCount + 1"/>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+            <output expression="&quot;You got &quot; &amp; correctCount &amp; &quot; correct answers.&quot;" newline="True"/>
+            <if expression="correctCount &gt;= 6">
+                <then>
+                    <output expression="&quot;Grade: excellent&quot;" newline="True"/>
+                </then>
+                <else>
+                    <if expression="correctCount &gt;= 3">
+                        <then>
+                            <output expression="&quot;Grade: average&quot;" newline="True"/>
+                        </then>
+                        <else>
+                            <output expression="&quot;Grade: poor&quot;" newline="True"/>
+                        </else>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>
